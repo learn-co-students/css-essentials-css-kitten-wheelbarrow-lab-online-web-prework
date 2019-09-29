@@ -1,44 +1,25 @@
-/* Select the image with a class of kitty-1 */
+require './spec/spec_helper.rb'
 
-/*__write_selector_here__*/ {
-  position: absolute;
-  z-index: 1;
-  top: 276px;
-  left: 129px;
-}
+RSpec.describe "Kitten Wheelbarrow" do
 
-/* Select the image with id of kitty-2 */
+  it 'selects the image with a class of kitty-1' do
+    expect(css_file_contents).to include('.kitty-1'), "Make sure you have a #ruby CSS selector that selects the image that has a class of kitty-1"
+  end
 
-/*__write_selector_here__*/ {
-  position: absolute;
-  z-index: 2;
-  top: 212px;
-  left: 369px;
-}
+  it 'selects the image with an id of kitty-2' do
+    expect(css_file_contents).to include('#kitty-2'), "Make sure you have a #ruby CSS selector that selects the image that has a class of kitty-2"
+  end
 
-/* Select the image inside the element with an id of basket (using its descendent relationship) */
+  it 'selects the image inside the element with an id of basket (via descendent relationship)' do
+    expect(css_file_contents).to include('#basket img')
+  end
 
-/*__write_selector_here__*/ {
-  position: absolute;
-  z-index: 5;
-  top: 291px;
-  left: 319px;
-}
+  it 'selects the image based on the respective sibling element' do
+    expect(css_file_contents).to include('#ball + img')
+  end
 
-/* Select the image based on it being a sibling that follows immediately after the element with an id of ball (using adjacent sibling selector) */
+  it 'Selects the image that has an attribute value matching "Kitty 5", via the attribute selector' do
+    expect(css_file_contents).to include('img[alt="Kitty 5"]')
+  end
 
-/*__write_selector_here__*/ {
-  position: absolute;
-  z-index: 4;
-  top: 260px;
-  left: 455px;
-}
-
-/* Select the image that has an attribute value matching "Kitty 5" (using attribute selector) */
-
-/*__write_selector_here__*/ {
-  position: absolute;
-  z-index: 3;
-  top: 217px;
-  left: 223px;
-}
+end
